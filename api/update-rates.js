@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       }
   
       // Update shop metafield via Admin API
-      const shopifyRes = await fetch('https://lucyandyak.myshopify.com/admin/api/2025-07/metafields.json', {
+      const shopifyRes = await fetch('https://lucy-yak.myshopify.com/admin/api/2025-07/metafields.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
