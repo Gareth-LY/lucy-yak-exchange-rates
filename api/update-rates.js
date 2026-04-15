@@ -33,11 +33,14 @@ export default async function handler(req, res) {
         }),
       });
   
+      const text = await shopifyRes.text();
+      console.log('Shopify response:', shopifyRes.status, text);
+  
       if (!shopifyRes.ok) {
-        throw new Error(`Shopify API error: ${shopifyRes.status}`);
+        throw new Error(`Shopify API error: ${shopifyRes.status} — ${text}`);
       }
   
-      const result = await shopifyRes.json();
+      const result = JSON.parse(text);
       return res.status(200).json({ success: true, rates: eurRates });
   
     } catch (error) {
